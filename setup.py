@@ -22,8 +22,10 @@ setup(
     packages = ['xxtea'],
     include_package_data = False,
     zip_safe = False,
-    package_data = {'xxtea': ['*.py', '*.c', '*.h']},
+    # package_data = {'xxtea': ['*.py', '*.c', '*.h']},
+    cffi_modules = ['xxtea/xxtea_build.py:ffi'],
     setup_requires = ['cffi', 'nose'],
+    install_requires = ['cffi', 'nose'],
     test_suite = 'nose.collector',
     tests_require = tests_require,
     classifiers = [

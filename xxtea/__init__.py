@@ -1,18 +1,7 @@
 # encoding: utf-8
-from cffi import FFI
 import sys
-from os.path import join, dirname
 
-__PATH = dirname(__file__)
-__SOURCES = [join(__PATH, 'xxtea.c')]
-
-ffi = FFI()
-ffi.cdef('''
-    void * xxtea_encrypt(const void * data, size_t len, const void * key, size_t * out_len);
-    void * xxtea_decrypt(const void * data, size_t len, const void * key, size_t * out_len);
-    void free(void * ptr);
-''')
-lib = ffi.verify('#include <xxtea.h>', sources = __SOURCES, include_dirs=[__PATH])
+from xxtea._xxtea import ffi, lib
 
 if sys.version_info < (3, 0):
     def __tobytes(v):
