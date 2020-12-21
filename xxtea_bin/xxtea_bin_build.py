@@ -6,7 +6,7 @@ __PATH = dirname(__file__)
 __SOURCES = [join(__PATH, 'xxtea.c')]
 
 ffi = FFI()
-ffi.set_source('xxtea._xxtea', source='#include <xxtea.h>', sources=__SOURCES, include_dirs=[__PATH])
+ffi.set_source('xxtea_bin._xxtea_bin', source='#include <xxtea.h>', sources=__SOURCES, include_dirs=[__PATH])
 ffi.cdef('''
     void * xxtea_encrypt(const void * data, size_t len, const void * key, size_t * out_len);
     void * xxtea_decrypt(const void * data, size_t len, const void * key, size_t * out_len);

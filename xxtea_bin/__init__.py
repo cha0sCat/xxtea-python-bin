@@ -1,7 +1,7 @@
 # encoding: utf-8
 import sys
 
-from xxtea._xxtea import ffi, lib
+from xxtea_bin._xxtea_bin import ffi, lib
 
 if sys.version_info < (3, 0):
     def __tobytes(v):
